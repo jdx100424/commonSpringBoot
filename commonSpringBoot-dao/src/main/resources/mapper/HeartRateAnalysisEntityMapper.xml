@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.maoshen.boot.dao.HeartRateAnalysisEntityMapper">
+	<resultMap id="BaseResultMap" type="com.maoshen.boot.entity.HeartRateAnalysisEntity">
+		<!-- WARNING - @mbggenerated -->
+		<id column="autoid" jdbcType="INTEGER" property="autoid" />
+		<result column="id" jdbcType="VARCHAR" property="id" />
+		<result column="user_id" jdbcType="INTEGER" property="userId" />
+		<result column="device_id" jdbcType="VARCHAR" property="deviceId" />
+		<result column="quantity_of_heart_rate" jdbcType="INTEGER"
+			property="quantityOfHeartRate" />
+		<result column="heart_rates" jdbcType="VARCHAR" property="heartRates" />
+		<result column="measurement_date" jdbcType="TIMESTAMP"
+			property="measurementDate" />
+		<result column="created" jdbcType="TIMESTAMP" property="created" />
+		<result column="updated" jdbcType="BIGINT" property="updated" />
+		<result column="exetime_lf" jdbcType="INTEGER" property="exetimeLf" />
+		<result column="exetime_cpm" jdbcType="INTEGER" property="exetimeCpm" />
+		<result column="exetime_sup" jdbcType="INTEGER" property="exetimeSup" />
+		<result column="silent_heart_rate" jdbcType="TINYINT" property="silentHeartRate" />
+		<result column="date_stamp" jdbcType="BIGINT" property="dateStamp" />
+		<result column="sleep_calculate" jdbcType="TINYINT" property="sleepCalculate" />
+		<result column="min_heart_rate" jdbcType="INTEGER" property="minHeartRate" />
+		<result column="max_heart_rate" jdbcType="INTEGER" property="maxHeartRate" />
+		<result column="client_id" jdbcType="VARCHAR" property="clientId" />
+		<result column="cal_info" jdbcType="VARCHAR" property="calInfo" />
+
+	</resultMap>
+
+	<sql id="common_sql">
+		autoid,
+		id,
+		user_id,
+		device_id,
+		quantity_of_heart_rate,
+		heart_rates,
+		measurement_date,
+		created,
+		updated,
+		exetime_lf,
+		exetime_cpm,
+		exetime_sup,
+		silent_heart_rate,
+		date_stamp,
+		sleep_calculate,
+		min_heart_rate,
+		max_heart_rate,
+		client_id,
+		cal_info
+	</sql>
+
+	<select id="selectByCondition" parameterType="java.util.Map"
+		resultMap="BaseResultMap">
+		SELECT
+		<include refid="common_sql" />
+		FROM heart_rate_analysis
+		where autoid = #{autoid}
+	</select>
+</mapper>
